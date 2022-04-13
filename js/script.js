@@ -60,6 +60,9 @@ const cartas = [
     }
 ];
 
+let cartasClicadas = [];
+let pontos = 0;
+
 const quadroCartas = document.querySelector(".quadro__cartas");
 
 function criarQuadroDeCartas()  {
@@ -68,7 +71,7 @@ function criarQuadroDeCartas()  {
 
         carta.id = i;
 
-        carta.cl = cartas[i].nome;
+        carta.title = cartas[i].nome;
 
         carta.src = "img/Shenlong.jpg";
 
@@ -82,4 +85,22 @@ function clicarNaCarta()    {
     let carta = this;
 
     carta.src = `img/${cartas[carta.id].imagem}`;
+
+    cartasClicadas.push(carta);
+
+    setTimeout(() => {
+        if(cartasClicadas.length == 2) {
+            let cartaClicadaUm = cartasClicadas[0], cartaClicadaDois = cartasClicadas[1];
+    
+            if(cartaClicadaUm.title == cartaClicadaDois.title)  {
+                pontos++;
+            } 
+            else    {
+                cartaClicadaUm.src = "img/Shenlong.jpg";
+                cartaClicadaDois.src = "img/Shenlong.jpg";
+            }
+    
+            cartasClicadas = [];
+        }
+    }, 1000);
 }
