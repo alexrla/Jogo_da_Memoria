@@ -73,5 +73,13 @@ function criarQuadroDeCartas()  {
         carta.src = "img/Shenlong.jpg";
 
         quadroCartas.appendChild(carta);
+
+        carta.addEventListener("click", clicarNaCarta);
     }
+}
+
+function clicarNaCarta()    {
+    let carta = this;
+
+    carta.src = `img/${cartas[carta.id].imagem}`;
 }
