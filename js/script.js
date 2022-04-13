@@ -88,7 +88,11 @@ function clicarNaCarta()    {
 
     carta.src = `img/${cartas[carta.id].imagem}`;
 
+    carta.removeEventListener("click", clicarNaCarta);
+
     cartasClicadas.push(carta);
+
+    console.log(cartasClicadas);
 
     setTimeout(() => {
         if(cartasClicadas.length == 2) {
@@ -119,6 +123,8 @@ function clicarNaCarta()    {
                 cartaClicadaDois.src = "img/Shenlong.jpg";
             }
     
+            cartaClicadaUm.addEventListener("click", clicarNaCarta);
+            cartaClicadaDois.addEventListener("click", clicarNaCarta); 
             cartasClicadas = [];
         }
     }, 1000);
