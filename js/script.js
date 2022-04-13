@@ -61,8 +61,10 @@ const cartas = [
 ];
 
 let cartasClicadas = [];
+let pontuacao= document.querySelector("#pontos");
 let pontos = 0;
 
+pontuacao.innerHTML = 0;
 const quadroCartas = document.querySelector(".quadro__cartas");
 
 function criarQuadroDeCartas()  {
@@ -94,6 +96,23 @@ function clicarNaCarta()    {
     
             if(cartaClicadaUm.title == cartaClicadaDois.title)  {
                 pontos++;
+                pontuacao.innerHTML = pontos;
+
+                if(pontos == 6)    {
+                    alert("Parabéns!");
+                    
+                    let resposta = prompt("Deseja reiniciar o jogo (sim/não)?")
+                    
+                    if(resposta == "sim")   {
+                        quadroCartas.innerHTML = "";
+                        criarQuadroDeCartas();
+            
+                        pontuacao.innerHTML = 0;
+                        pontos = 0;
+            
+                    }
+            
+                }
             } 
             else    {
                 cartaClicadaUm.src = "img/Shenlong.jpg";
