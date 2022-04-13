@@ -37,11 +37,17 @@ body    {
 
     flex-wrap: wrap;
 
-    margin: auto;
+    margin: 20px auto;
 
-    width: 520px;
+    width: 800px;
 }
 
 img {
-    width: 130px;
+    height: 200px;
+
+    padding: 20px;
+
+    width: 200px;
+
+    cursor: pointer;
 }
