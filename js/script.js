@@ -68,6 +68,10 @@ pontuacao.innerHTML = 0;
 const quadroCartas = document.querySelector(".quadro__cartas");
 
 function criarQuadroDeCartas()  {
+    cartas.sort(()  =>  {
+        return Math.random() - 0.5;
+    })
+
     for(let i = 0; i < cartas.length; i++)  {
         let carta = document.createElement("img");
 
@@ -91,8 +95,6 @@ function clicarNaCarta()    {
     carta.removeEventListener("click", clicarNaCarta);
 
     cartasClicadas.push(carta);
-
-    console.log(cartasClicadas);
 
     setTimeout(() => {
         if(cartasClicadas.length == 2) {
