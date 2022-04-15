@@ -97,25 +97,23 @@ function clicarNaCarta()    {
     cartasClicadas.push(carta);
 
     setTimeout(() => {
-        if(cartasClicadas.length == 2) {
+        if(cartasClicadas.length === 2) {
             let cartaClicadaUm = cartasClicadas[0], cartaClicadaDois = cartasClicadas[1];
     
-            if(cartaClicadaUm.title == cartaClicadaDois.title)  {
+            if(cartaClicadaUm.title === cartaClicadaDois.title)  {
                 pontos++;
                 pontuacao.innerHTML = pontos;
 
-                if(pontos == 6)    {
+                if(pontos === 6)    {
                     alert("Parabéns!");
                     
                     let resposta = prompt("Deseja reiniciar o jogo (sim/não)?")
                     
-                    if(resposta == "sim")   {
+                    if(resposta === "sim")   {
                         quadroCartas.innerHTML = "";
-                        criarQuadroDeCartas();
-            
                         pontuacao.innerHTML = 0;
                         pontos = 0;
-            
+                        criarQuadroDeCartas();
                     }
             
                 }
