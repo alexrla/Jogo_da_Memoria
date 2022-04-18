@@ -90,11 +90,13 @@ function criarQuadroDeCartas()  {
 function clicarNaCarta()    {
     let carta = this;
 
-    carta.src = `img/${cartas[carta.id].imagem}`;
+    if(cartasClicadas.length < 2)   {
+        carta.src = `img/${cartas[carta.id].imagem}`;
 
-    carta.removeEventListener("click", clicarNaCarta);
+        carta.removeEventListener("click", clicarNaCarta);
 
-    cartasClicadas.push(carta);
+        cartasClicadas.push(carta);
+    }   
 
     setTimeout(() => {
         if(cartasClicadas.length === 2) {
